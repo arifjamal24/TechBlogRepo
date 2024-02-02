@@ -12,13 +12,13 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active"><a class="nav-link" href="index.jsp"><span
-					class="fa fa-home"></span>&nbsp;Home <span class="sr-only">(current)</span></a>
+					class="fa fa-home"></span> Home <span class="sr-only">(current)</span></a>
 			</li>
 
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 				role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false"> <span class="fa fa-laptop"></span>&nbsp;Catagories
+				aria-expanded="false"> <span class="fa fa-laptop"></span> Catagories
 			</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="#">Android Development</a> <a
@@ -27,12 +27,12 @@
 					<a class="dropdown-item" href="#">Data Structure and Alogrithem</a>
 				</div></li>
 			<li class="nav-item"><a class="nav-link" href="#"><span
-					class="fa fa-address-book-o"></span>&nbsp;Contact</a></li>
+					class="fa fa-address-book-o"></span> Contact</a></li>
 			<li class="nav-item"><a class="nav-link" href="loginPage.jsp"><span
-					class="fa fa-sign-in"></span>&nbsp;Login</a></li>
+					class="fa fa-sign-in"></span> Login</a></li>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="registerPage.jsp"><span
-					class="fa fa-user-plus"></span>&nbsp;SignUp</a></li>
+					class="fa fa-user-plus"></span> SignUp</a></li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
 			<input class="form-control mr-sm-2" type="search"
