@@ -220,7 +220,7 @@ if (user == null) {
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				<div class="modal-header">
+				<div class="modal-header primary-background text-white">
 					<h5 class="modal-title" id="exampleModalLabel">Provide the
 						post details...</h5>
 					<button type="button" class="close" data-dismiss="modal"
@@ -230,6 +230,19 @@ if (user == null) {
 				</div>
 				<div class="modal-body">
 					<form action="newPost" method="post">
+						<div class="form-group">
+							<label for="catId">Category</label> <select
+								class="form-control" id="catId">
+								<option selected disabled>---select category---</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+						</div>
+
+
 						<div class="form-group">
 							<input type="text" name="title" class="form-control"
 								placeholder="Enter post Title">
@@ -243,8 +256,8 @@ if (user == null) {
 								placeholder="Enter your program (if any)" style="height: 100px;"></textarea>
 						</div>
 						<div class="form-group">
-						<label>select image (if any)</label>
-							<input type="file" name="imgFile" class="form-control-file">
+							<label>select image (if any)</label> <input type="file"
+								name="imgFile" class="form-control-file">
 						</div>
 					</form>
 				</div>
