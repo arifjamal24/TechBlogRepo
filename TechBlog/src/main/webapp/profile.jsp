@@ -106,33 +106,88 @@ if (user == null) {
 							style="border-radius: 50%, max-width:150px; max-height: 150px;">
 						<br>
 						<h5 class="modal-title mt-3" id="exampleModalLabel"><%=user.getName()%></h5>
-					</div>
-					<!-- profile details -->
-					<table class="table">
-						<tbody>
-							<tr>
-								<th scope="row">ID:</th>
-								<td><%=user.getId()%></td>
-							</tr>
-							<tr>
-								<th scope="row">Registered on:</th>
-								<td><%=user.getDatetime()%></td>
-							</tr>
-							<tr>
-								<th scope="row">Email:</th>
-								<td><%=user.getEmail()%></td>
-							</tr>
-							<tr>
-								<th scope="row">Gender:</th>
-								<td><%=user.getGender()%></td>
-							</tr>
-							<tr>
-								<th scope="row">Status:</th>
-								<td><%=user.getAbout()%></td>
-							</tr>
-						</tbody>
-					</table>
+						<!-- profile details -->
+						<div id="profile-details">
+							<table class="table">
+								<tbody>
+									<tr>
+										<th scope="row">ID:</th>
+										<td><%=user.getId()%></td>
+									</tr>
+									<tr>
+										<th scope="row">Registered on:</th>
+										<td><%=user.getDatetime()%></td>
+									</tr>
+									<tr>
+										<th scope="row">Email:</th>
+										<td><%=user.getEmail()%></td>
+									</tr>
+									<tr>
+										<th scope="row">Gender:</th>
+										<td><%=user.getGender()%></td>
+									</tr>
+									<tr>
+										<th scope="row">Status:</th>
+										<td><%=user.getAbout()%></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
+						<!-- edit profile start -->
+						<div id="profile-edit" style="display: none">
+							<h5 class="mt-2">Please Edit Carefully</h5>
+							<form action="edit" method="post" enctype="multipart/form-data">
+								<table class="table">
+									<tbody>
+										<tr>
+											<th scope="row">ID:</th>
+											<td><%=user.getId()%></td>
+										</tr>
+										<tr>
+											<th scope="row">Registered on:</th>
+											<td><%=user.getDatetime()%></td>
+										</tr>
+										<tr>
+											<th scope="row">Name:</th>
+											<td><input type="text" name="username"
+												class="form-control" value="<%=user.getName()%>"></td>
+										</tr>
+										<tr>
+											<th scope="row">Email:</th>
+											<td><input type="email" name="email"
+												class="form-control" value="<%=user.getEmail()%>"></td>
+										</tr>
+										<tr>
+											<th scope="row">Password:</th>
+											<td><input type="password" name="password"
+												class="form-control" value="<%=user.getPassword()%>"></td>
+										</tr>
+										<tr>
+											<th scope="row">Password:</th>
+											<td><input type="text" name="gender"
+												class="form-control"
+												value="<%=user.getGender().toUpperCase()%>"></td>
+										</tr>
+										<tr>
+											<th scope="row">About:</th>
+											<td><textarea rows="5" name="about" class="form-control"><%=user.getAbout()%>
+											</textarea></td>
+										</tr>
+										<tr>
+											<th scope="row">change profile:</th>
+											<td><input type="file" class="form-control-file"
+												name="profileImg"></td>
+										</tr>
+
+									</tbody>
+								</table>
+								<div class="container">
+									<button type="submit" class="btn btn-outline-primary">save</button>
+								</div>
+							</form>
+						</div>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
