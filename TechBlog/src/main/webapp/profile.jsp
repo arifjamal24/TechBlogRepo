@@ -1,6 +1,7 @@
 
-<%@page import="com.tech.blog.entities.Message"%>
-<%@page import="com.tech.blog.entities.User"%>
+<%@page import="com.tech.blog.dao.PostDao"%>
+<%@page import="com.tech.blog.entities.*, java.util.*"%>
+<%@page import="com.tech.blog.helper.ConnectionProvider"%>
 <%@page errorPage="error.jsp"%>
 
 <%
@@ -231,14 +232,18 @@ if (user == null) {
 				<div class="modal-body">
 					<form action="newPost" method="post">
 						<div class="form-group">
-							<label for="catId">Category</label> <select
-								class="form-control" id="catId">
+							<label for="catId">Category</label> <select class="form-control"
+								id="catId">
 								<option selected disabled>---select category---</option>
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
+								<%
+								PostDao pd = new PostDao(ConnectionProvider.getConnection());
+								ArrayList<Category> list = pd.getAllCategories();
+								for (Category c : list) {
+								%>
+								<option><%=c.getCname() %></option>
+								<%
+								}
+								%>
 							</select>
 						</div>
 
