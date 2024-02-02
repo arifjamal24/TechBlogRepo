@@ -73,6 +73,8 @@ if (user == null) {
 					</div></li>
 				<li class="nav-item"><a class="nav-link" href="#"><span
 						class="fa fa-address-book-o"></span> Contact</a></li>
+				<li class="nav-item"><a class="nav-link" href="#"><span
+						class="fa fa-file-o"></span> New Post</a></li>
 			</ul>
 
 			<ul class="navbar-nav mr-right">
@@ -88,17 +90,17 @@ if (user == null) {
 	</nav>
 
 	<!-- end of navbar -->
-	
-							<%
-						Message msg = (Message) session.getAttribute("msg");
-						if (msg != null) {
-						%>
-						<div class="alert <%=msg.getCssClass() %>" role="alert"><%=msg.getContent()%></div>
-						<%
-						session.removeAttribute("msg");
-						}
-						%>
-	
+
+	<%
+	Message msg = (Message) session.getAttribute("msg");
+	if (msg != null) {
+	%>
+	<div class="alert <%=msg.getCssClass()%>" role="alert"><%=msg.getContent()%></div>
+	<%
+	session.removeAttribute("msg");
+	}
+	%>
+
 	<!-- profile modal -->
 	<!-- Modal -->
 	<div class="modal fade" id="profile-modal" tabindex="-1" role="dialog"
