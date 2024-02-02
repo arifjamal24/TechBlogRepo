@@ -73,7 +73,8 @@ if (user == null) {
 					</div></li>
 				<li class="nav-item"><a class="nav-link" href="#"><span
 						class="fa fa-address-book-o"></span> Contact</a></li>
-				<li class="nav-item"><a class="nav-link" href="#!" data-toggle="modal" data-target="#add-post-modal"><span
+				<li class="nav-item"><a class="nav-link" href="#!"
+					data-toggle="modal" data-target="#add-post-modal"><span
 						class="fa fa-file-o"></span> New Post</a></li>
 			</ul>
 
@@ -211,31 +212,52 @@ if (user == null) {
 			</div>
 		</div>
 	</div>
-<!-- end of profile modal -->
+	<!-- end of profile modal -->
 
-<!-- add post modal start -->
-<!-- Modal -->
-<div class="modal fade" id="add-post-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+	<!-- add post modal start -->
+	<!-- Modal -->
+	<div class="modal fade" id="add-post-modal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Provide the
+						post details...</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form action="newPost" method="post">
+						<div class="form-group">
+							<input type="text" name="title" class="form-control"
+								placeholder="Enter post Title">
+						</div>
+						<div class="form-group">
+							<textarea name="content" class="form-control"
+								placeholder="Enter post Content" style="height: 200px;"></textarea>
+						</div>
+						<div class="form-group">
+							<textarea name="content" class="form-control"
+								placeholder="Enter your program (if any)" style="height: 100px;"></textarea>
+						</div>
+						<div class="form-group">
+						<label>select image (if any)</label>
+							<input type="file" name="imgFile" class="form-control-file">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<!-- add post modal end -->
+	<!-- add post modal end -->
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
