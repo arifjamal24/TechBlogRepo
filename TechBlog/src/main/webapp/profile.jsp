@@ -75,9 +75,10 @@ if (user == null) {
 			</ul>
 
 			<ul class="navbar-nav mr-right">
-				<li class="nav-item"><a class="nav-link" href="#!" data-toggle="modal" data-target="#profile-modal"><span
+				<li class="nav-item"><a class="nav-link" href="#!"
+					data-toggle="modal" data-target="#profile-modal"><span
 						class="fa fa-user-circle"></span> <%=user.getName()%></a></li>
-	
+
 				<li class="nav-item"><a class="nav-link" href="logout"><span
 						class="fa fa-power-off"></span> logout</a></li>
 
@@ -85,32 +86,62 @@ if (user == null) {
 		</div>
 	</nav>
 
-<!-- end of navbar -->
-<!-- profile modal -->
-<!-- Modal -->
-<div class="modal fade" id="profile-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header primary-background text-white text-center">
-        <h5 class="modal-title" id="exampleModalLabel">TechBlog</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-   <div class="container text-center">
-   <img src="pics/<%=user.getProfile() %>" class="img-fluid" style="border-radius:50%,max-width:150px; max-height:150px;"> 
-   <br>
-    <h5 class="modal-title mt-3" id="exampleModalLabel"><%=user.getName() %></h5>
-   </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+	<!-- end of navbar -->
+	<!-- profile modal -->
+	<!-- Modal -->
+	<div class="modal fade" id="profile-modal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header primary-background text-white text-center">
+					<h5 class="modal-title" id="exampleModalLabel">TechBlog</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container text-center">
+						<img src="pics/<%=user.getProfile()%>" class="img-fluid"
+							style="border-radius: 50%, max-width:150px; max-height: 150px;">
+						<br>
+						<h5 class="modal-title mt-3" id="exampleModalLabel"><%=user.getName()%></h5>
+					</div>
+					<!-- profile details -->
+					<table class="table">
+						<tbody>
+							<tr>
+								<th scope="row">ID:</th>
+								<td><%=user.getId()%></td>
+							</tr>
+							<tr>
+								<th scope="row">Registered on:</th>
+								<td><%=user.getDatetime()%></td>
+							</tr>
+							<tr>
+								<th scope="row">Email:</th>
+								<td><%=user.getEmail()%></td>
+							</tr>
+							<tr>
+								<th scope="row">Gender:</th>
+								<td><%=user.getGender()%></td>
+							</tr>
+							<tr>
+								<th scope="row">Status:</th>
+								<td><%=user.getAbout()%></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+					<button type="button" id="edit-profile-btn" class="btn btn-primary">Edit</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<script
