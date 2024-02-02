@@ -1,4 +1,5 @@
 
+<%@page import="com.tech.blog.entities.Message"%>
 <%@page import="com.tech.blog.entities.User"%>
 <%@page errorPage="error.jsp"%>
 
@@ -87,6 +88,17 @@ if (user == null) {
 	</nav>
 
 	<!-- end of navbar -->
+	
+							<%
+						Message msg = (Message) session.getAttribute("msg");
+						if (msg != null) {
+						%>
+						<div class="alert <%=msg.getCssClass() %>" role="alert"><%=msg.getContent()%></div>
+						<%
+						session.removeAttribute("msg");
+						}
+						%>
+	
 	<!-- profile modal -->
 	<!-- Modal -->
 	<div class="modal fade" id="profile-modal" tabindex="-1" role="dialog"
@@ -177,7 +189,7 @@ if (user == null) {
 										<tr>
 											<th scope="row">change profile:</th>
 											<td><input type="file" class="form-control-file"
-												name="profileImg"></td>
+												name="profileImg" value="<%=user.getProfile()%>"></td>
 										</tr>
 
 									</tbody>
