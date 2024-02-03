@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import com.tech.blog.dao.PostDao;
+import com.tech.blog.entities.Posts;
 import com.tech.blog.entities.User;
+import com.tech.blog.helper.ConnectionProvider;
 
 /**
  * Servlet implementation class AddNewPost
@@ -42,6 +45,14 @@ public class AddNewPost extends HttpServlet {
 		
 		HttpSession	session = request.getSession();
 		User user = (User) session.getAttribute("currentUser");
+		
+		Posts post = new Posts(title, content, code, fileName, null, catId, user.getId());
+		PostDao pd = new PostDao(ConnectionProvider.getConnection());
+		if(pd.savePost(post)) {
+			out.print("done");
+		}
+		else
+			out.print("error");
 		
 		out.print(fileName);
 	}

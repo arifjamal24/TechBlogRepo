@@ -11,13 +11,14 @@ public class Posts {
 	private String pPic;
 	private Timestamp pDate;
 	private int catId;
+	private int userId;
 	
 	public Posts() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Posts(int pid, String pTitle, String pContent, String pCode, String pPic, Timestamp pDate, int catId) {
+	public Posts(int pid, String pTitle, String pContent, String pCode, String pPic, Timestamp pDate, int catId, int userId) {
 		super();
 		this.pid = pid;
 		this.pTitle = pTitle;
@@ -26,9 +27,10 @@ public class Posts {
 		this.pPic = pPic;
 		this.pDate = pDate;
 		this.catId = catId;
+		this.userId = userId;
 	}
 
-	public Posts(String pTitle, String pContent, String pCode, String pPic, Timestamp pDate, int catId) {
+	public Posts(String pTitle, String pContent, String pCode, String pPic, Timestamp pDate, int catId, int userId) {
 		super();
 		this.pTitle = pTitle;
 		this.pContent = pContent;
@@ -94,6 +96,14 @@ public class Posts {
 		this.catId = catId;
 	}
 
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	
 	@Override
 	public String toString() {
 		return "Posts [pid=" + pid + ", pTitle=" + pTitle + ", pContent=" + pContent + ", pCode=" + pCode + ", pPic="
