@@ -230,17 +230,17 @@ if (user == null) {
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="newPost" method="post">
+					<form id="add-post-form" action="newPost" method="post">
 						<div class="form-group">
 							<label for="catId">Category</label> <select class="form-control"
-								id="catId">
+								id="catId" name="catId">
 								<option selected disabled>---select category---</option>
 								<%
 								PostDao pd = new PostDao(ConnectionProvider.getConnection());
 								ArrayList<Category> list = pd.getAllCategories();
 								for (Category c : list) {
 								%>
-								<option><%=c.getCname() %></option>
+								<option id=<%=c.getCid() %>><%=c.getCname() %></option>
 								<%
 								}
 								%>
@@ -257,19 +257,17 @@ if (user == null) {
 								placeholder="Enter post Content" style="height: 200px;"></textarea>
 						</div>
 						<div class="form-group">
-							<textarea name="content" class="form-control"
+							<textarea name="code" class="form-control"
 								placeholder="Enter your program (if any)" style="height: 100px;"></textarea>
 						</div>
 						<div class="form-group">
 							<label>select image (if any)</label> <input type="file"
 								name="imgFile" class="form-control-file">
 						</div>
+						<div class="container text-center">
+						<button type="submit" class="btn btn-outline-primary">post</button>
+						</div>
 					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
 				</div>
 			</div>
 		</div>

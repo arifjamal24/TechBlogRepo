@@ -16,5 +16,37 @@ $('#edit-profile-btn').click(function(){
 	editStatus = false;
 	}
 	});
+	
+	
+	/* add new post js */
+	$('#add-post-form').on('submit',function(event){
+		event.preventDefault();
+		console.log("respponse dsuccc");
+		let form = new FormData(this);
+		
+		$.ajax({
+			
+			url:"newPost",
+		   type:'POST',
+		   data:form,
+		success: function(data){
+			console.log("respponse dsuccc");
+			
+		},
+		  error:function(error){},
+	processData:false,
+	contentType:false
+			
+		});
+		
+		
+		
+	});
+	
+	
+	
+	
+	
+	
 });
  
