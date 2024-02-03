@@ -230,7 +230,7 @@ if (user == null) {
 					</button>
 				</div>
 				<div class="modal-body">
-					<form id="add-post-form" action="newPost" method="post">
+					<form id="add-post-form" action="" method="post">
 						<div class="form-group">
 							<label for="catId">Category</label> <select class="form-control"
 								id="catId" name="catId">
@@ -240,7 +240,7 @@ if (user == null) {
 								ArrayList<Category> list = pd.getAllCategories();
 								for (Category c : list) {
 								%>
-								<option id=<%=c.getCid() %>><%=c.getCname() %></option>
+								<option value=<%=c.getCid() %>><%=c.getCname() %></option>
 								<%
 								}
 								%>

@@ -21,16 +21,15 @@ $('#edit-profile-btn').click(function(){
 	/* add new post js */
 	$('#add-post-form').on('submit',function(event){
 		event.preventDefault();
-		console.log("respponse dsuccc");
+		console.log("clickrf");
 		let form = new FormData(this);
 		
-		$.ajax({
-			
-			url:"newPost",
+		$.ajax({			
+			url:'newPost',
 		   type:'POST',
 		   data:form,
 		success: function(data){
-			console.log("respponse dsuccc");
+			console.log(data);
 			
 		},
 		  error:function(error){},
