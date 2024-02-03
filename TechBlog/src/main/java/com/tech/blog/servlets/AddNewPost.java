@@ -1,5 +1,6 @@
 package com.tech.blog.servlets;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -16,6 +17,7 @@ import com.tech.blog.dao.PostDao;
 import com.tech.blog.entities.Posts;
 import com.tech.blog.entities.User;
 import com.tech.blog.helper.ConnectionProvider;
+import com.tech.blog.helper.Helper;
 
 /**
  * Servlet implementation class AddNewPost
@@ -45,16 +47,18 @@ public class AddNewPost extends HttpServlet {
 		
 		HttpSession	session = request.getSession();
 		User user = (User) session.getAttribute("currentUser");
-		
+		System.out.println("----------"+catId);
 		Posts post = new Posts(title, content, code, fileName, null, catId, user.getId());
 		PostDao pd = new PostDao(ConnectionProvider.getConnection());
 		if(pd.savePost(post)) {
+			String pathFile = request.getRealPath("/")+"blog_pics"+File.separator+fileName;	
+			Helper.saveFile(part.getInputStream(), pathFile);
 			out.print("done");
 		}
 		else
 			out.print("error");
 		
-		out.print(fileName);
+		
 	}
 
 }
