@@ -43,7 +43,7 @@ Connection con;
 	public boolean savePost(Posts p) {
 		boolean status = false;
 		try {
-			String query = "Insert into posts(pTitle,pContent,pCode,pPic,catid,userId) values(?,?,?,?,?,?)";
+			String query = "Insert into posts(pTitle,pContent,pCode,pPic,catId,userId) values(?,?,?,?,?,?)";
 			PreparedStatement pstmt = con.prepareStatement(query);
 			
 			pstmt.setString(1, p.getpTitle());

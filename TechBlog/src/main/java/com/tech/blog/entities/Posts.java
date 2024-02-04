@@ -38,6 +38,7 @@ public class Posts {
 		this.pPic = pPic;
 		this.pDate = pDate;
 		this.catId = catId;
+		this.userId = userId;
 	}
 
 	public int getPid() {

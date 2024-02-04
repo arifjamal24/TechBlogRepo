@@ -47,7 +47,6 @@ public class AddNewPost extends HttpServlet {
 		
 		HttpSession	session = request.getSession();
 		User user = (User) session.getAttribute("currentUser");
-		System.out.println("----------"+catId);
 		Posts post = new Posts(title, content, code, fileName, null, catId, user.getId());
 		PostDao pd = new PostDao(ConnectionProvider.getConnection());
 		if(pd.savePost(post)) {
