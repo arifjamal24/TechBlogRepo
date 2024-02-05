@@ -30,9 +30,17 @@ $('#edit-profile-btn').click(function(){
 		   data:form,
 		success: function(data){
 			console.log(data);
+			if(data.trim() == 'done'){
+				swal({
+    	    		  icon: "success",
+    	    		  title:"saved successfully"	  
+    	    		}).then((value) => { window.location = "profile.jsp"});
+			}
+			else { swal(data); }
+			
 			
 		},
-		  error:function(error){},
+		  error:function(error){ swal(data); },
 	processData:false,
 	contentType:false
 			
