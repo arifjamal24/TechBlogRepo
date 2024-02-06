@@ -1,8 +1,8 @@
-
+<%@page errorPage="error.jsp"%>
 <%@page import="com.tech.blog.dao.PostDao"%>
 <%@page import="com.tech.blog.entities.*, java.util.*"%>
 <%@page import="com.tech.blog.helper.ConnectionProvider"%>
-<%@page errorPage="error.jsp"%>
+
 
 <%
 User user = (User) session.getAttribute("currentUser");
@@ -102,6 +102,41 @@ if (user == null) {
 	session.removeAttribute("msg");
 	}
 	%>
+
+<!-- main body of the page -->
+
+<main>
+<div class="container">
+<div class="row mt-4">
+<!-- first col -->
+
+<div class="col-md-4">
+<!-- categories part -->
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active">
+	All Posts
+  </a>
+  <%
+  	PostDao p = new PostDao(ConnectionProvider.getConnection());
+  	ArrayList<Category> list1 = pd.getAllCategories();
+  	for(Category c:list1){
+  %>
+  <a href="#" class="list-group-item list-group-item-action"><%=c.getCname() %></a>
+<%} %>
+</div>
+</div>
+
+<!-- second col -->
+<div class="col-md-8">
+<!-- posts part -->
+
+</div>
+</div>
+</div>
+
+</main>
+
+<!-- end main body of the page -->
 
 	<!-- profile modal -->
 	<!-- Modal -->
