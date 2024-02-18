@@ -49,17 +49,24 @@ $('#edit-profile-btn').click(function(){
 	
 });
  
- 
-$().ready(function(){ 
- /* loading post */	
-	$.ajax({
+ function getAllPost(catId){
+	 $('#loader').show();
+	 $('#post-container').hide();
+	 	$.ajax({
 		url:"load_post.jsp",
+	   data:{cid: catId},
 	success:function(data){
 		console.log(data);
 		$('#loader').hide();
+		 $('#post-container').show();
 	    $('#post-container').html(data);
 		
 	}
 		
 	});
+ }
+ 
+$().ready(function(){ 
+ /* loading post */	
+getAllPost(0);
 });

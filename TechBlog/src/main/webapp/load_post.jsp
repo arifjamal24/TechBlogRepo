@@ -6,8 +6,21 @@
 <div class="row">
 
 <%
+	Thread.sleep(1000);
 	PostDao d = new PostDao(ConnectionProvider.getConnection());
-	List<Posts> post = d.getAllPosts();
+int cid = Integer.parseInt(request.getParameter("cid"));
+List<Posts> post = null;
+if(cid == 0){
+	post = d.getAllPosts();
+}else{
+	post = d.getPostByCatId(cid);
+}
+
+if(post.size() == 0){
+	out.print("<h3 class='display-3 text-center'>No post in this Category</h3>");
+	return;
+}
+
 	for(Posts p:post){
 %>
 <div class="col-md-6 mt-2">

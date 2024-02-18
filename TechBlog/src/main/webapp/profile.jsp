@@ -113,7 +113,7 @@ if (user == null) {
 <div class="col-md-4">
 <!-- categories part -->
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action active">
+  <a href="#" onclick="getAllPost(0)" class="list-group-item list-group-item-action active">
 	All Posts
   </a>
   <%
@@ -121,7 +121,7 @@ if (user == null) {
   	ArrayList<Category> list1 = p.getAllCategories();
   	for(Category c:list1){
   %>
-  <a href="#" class="list-group-item list-group-item-action"><%=c.getCname() %></a>
+  <a href="#" onclick="getAllPost(<%=c.getCid() %>)" class="list-group-item list-group-item-action"><%=c.getCname() %></a>
 <%} %>
 </div>
 </div>
