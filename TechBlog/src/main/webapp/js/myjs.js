@@ -44,16 +44,22 @@ $('#edit-profile-btn').click(function(){
 	processData:false,
 	contentType:false
 			
-		});
-		
-		
-		
+		});	
 	});
-	
-	
-	
-	
-	
 	
 });
  
+ 
+$().ready(function(){ 
+ /* loading post */	
+	$.ajax({
+		url:"load_post.jsp",
+	success:function(data){
+		console.log(data);
+		$('#loader').hide();
+	    $('#post-container').html(data);
+		
+	}
+		
+	});
+});

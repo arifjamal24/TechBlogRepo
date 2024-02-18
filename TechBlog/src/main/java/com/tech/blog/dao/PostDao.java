@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.*;
 
 import com.tech.blog.entities.Category;
@@ -63,4 +64,62 @@ Connection con;
 		return status;
 	}
 	
+	public List<Posts> getAllPosts(){
+		List<Posts> list = new ArrayList<>();
+		try {
+			PreparedStatement p = con.prepareStatement("SELECT * FROM POSTS");
+			ResultSet set = p.executeQuery();
+			while(set.next()) {
+				int pid 	    = set.getInt("pid");
+				String pTitle   = set.getString("pTitle");
+				String pContent = set.getString("pContent");
+				String pCode	= set.getString("pCode");
+				String pPic		= set.getString("pPic");
+				Timestamp pDate	= set.getTimestamp("pDate");
+				int catId		= set.getInt("catId");
+				int userId		= set.getInt("userId");
+				Posts post = new Posts(pid, pTitle, pContent, pCode, pPic, pDate, catId, userId);
+				list.add(post);
+				
+				
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	public List<Posts> getPostByCatId(int catId){
+		List<Posts> list = new ArrayList<>();
+		
+		try {
+			PreparedStatement p = con.prepareStatement("SELECT * FROM POSTS WHERE catId=?");
+			p.setInt(1, catId);
+			ResultSet set = p.executeQuery();
+			while(set.next()) {
+				int pid 	    = set.getInt("pid");
+				String pTitle   = set.getString("pTitle");
+				String pContent = set.getString("pContent");
+				String pCode	= set.getString("pCode");
+				String pPic		= set.getString("pPic");
+				Timestamp pDate	= set.getTimestamp("pDate");
+				int userId		= set.getInt("userId");
+				Posts post = new Posts(pid, pTitle, pContent, pCode, pPic, pDate, catId, userId);
+				list.add(post);
+				
+				
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+		
+		
+	}
 }

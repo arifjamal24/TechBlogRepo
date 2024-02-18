@@ -118,7 +118,7 @@ if (user == null) {
   </a>
   <%
   	PostDao p = new PostDao(ConnectionProvider.getConnection());
-  	ArrayList<Category> list1 = pd.getAllCategories();
+  	ArrayList<Category> list1 = p.getAllCategories();
   	for(Category c:list1){
   %>
   <a href="#" class="list-group-item list-group-item-action"><%=c.getCname() %></a>
@@ -129,7 +129,13 @@ if (user == null) {
 <!-- second col -->
 <div class="col-md-8">
 <!-- posts part -->
+<div class="container text-center" id="loader">
+<i class="fa fa-refresh fa-4x fa-spin"></i>
+<h3 class="mt-3">loading...</h3>
+</div>
+<div class="container-fluid" id="post-container">
 
+</div>
 </div>
 </div>
 </div>
