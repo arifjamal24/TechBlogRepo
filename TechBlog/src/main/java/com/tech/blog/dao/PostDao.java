@@ -67,7 +67,7 @@ Connection con;
 	public List<Posts> getAllPosts(){
 		List<Posts> list = new ArrayList<>();
 		try {
-			PreparedStatement p = con.prepareStatement("SELECT * FROM POSTS");
+			PreparedStatement p = con.prepareStatement("SELECT * FROM POSTS ORDER BY pid desc");
 			ResultSet set = p.executeQuery();
 			while(set.next()) {
 				int pid 	    = set.getInt("pid");
