@@ -49,17 +49,21 @@ $('#edit-profile-btn').click(function(){
 	
 });
  
- function getAllPost(catId){
+ function getAllPost(catId,temp){
 	 $('#loader').show();
 	 $('#post-container').hide();
+	 
+	 $('.c-link').removeClass("active");
+	 
 	 	$.ajax({
 		url:"load_post.jsp",
 	   data:{cid: catId},
 	success:function(data){
 		console.log(data);
 		$('#loader').hide();
-		 $('#post-container').show();
+		$('#post-container').show();
 	    $('#post-container').html(data);
+	    $(temp).addClass("active");
 		
 	}
 		
@@ -67,6 +71,7 @@ $('#edit-profile-btn').click(function(){
  }
  
 $().ready(function(){ 
- /* loading post */	
-getAllPost(0);
+ /* loading post */
+ let ref = $('.c-link')[0];	
+getAllPost(0,ref);
 });
