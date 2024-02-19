@@ -31,6 +31,12 @@ if(post.size() == 0){
 <p><%=p.getpContent() %></p>
 <pre><%=p.getpCode() %></pre>
 </div>
+<div class="card-footer text-center">
+<a href="#!" class="btn btn-outline-primary btn-sm"><i class="fa fa-thumbs-o-up"></i><span>10</span></a>
+<a href="#!" class="btn btn-outline-primary btn-sm"><i class="fa fa-commenting-o"></i><span>20</span></a>
+<a href="showBlog.jsp?pid=<%=p.getPid() %>" class="btn btn-outline-primary btn-sm">Read more...</a>
+
+</div>
 
 </div>
 
