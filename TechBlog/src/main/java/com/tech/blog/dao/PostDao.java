@@ -122,4 +122,31 @@ Connection con;
 		
 		
 	}
+
+    public Posts getPostByPostId(int pid) {
+    	Posts post = null;
+    	String q = "select * from posts where pid=?";
+    	try {
+        	PreparedStatement p = this.con.prepareStatement(q);
+        	p.setInt(1, pid);
+        	ResultSet set = p.executeQuery();
+        	if(set.next()) {
+				String pTitle   = set.getString("pTitle");
+				String pContent = set.getString("pContent");
+				String pCode	= set.getString("pCode");
+				String pPic		= set.getString("pPic");
+				Timestamp pDate	= set.getTimestamp("pDate");
+				int userId		= set.getInt("userId");
+				int catId		= set.getInt("catId");
+				post = new Posts(pid, pTitle, pContent, pCode, pPic, pDate, catId, userId);
+        	}
+        	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+    	
+    	return post;
+    }
+	
 }

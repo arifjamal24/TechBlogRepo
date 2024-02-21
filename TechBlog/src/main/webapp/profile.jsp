@@ -32,12 +32,13 @@ if (user == null) {
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<title>login page</title>
 <style type="text/css">
 .banner-background {
 	clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 99%, 65% 87%, 34% 100%, 0 95%, 0 0);
 }
 </style>
+<title>login page</title>
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -56,7 +57,7 @@ if (user == null) {
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link"
-					href="index.jsp"><span class="fa fa-home"></span> Home <span
+					href="profile.jsp"><span class="fa fa-home"></span> Home <span
 						class="sr-only">(current)</span></a></li>
 
 				<li class="nav-item dropdown"><a
