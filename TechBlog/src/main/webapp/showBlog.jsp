@@ -33,6 +33,26 @@ if (user == null) {
 .banner-background {
 	clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 99%, 65% 87%, 34% 100%, 0 95%, 0 0);
 }
+.post-title{
+font-weight:100;
+font-size:30px;
+}
+.post-content{
+font-weight:100;
+font-size:25px;
+}
+.post-date{
+font-style:italic;
+font-weight:bold;
+}
+.post-userInfo{
+font-size:20px;
+font-weight:normal;
+}
+.row-user{
+border: 1px solid #e2e2e2;
+padding: 15px;
+}
 </style>
 
 <%
@@ -100,17 +120,27 @@ Posts p = pd.getPostByPostId(pid);
 			<div class="col-md-6 offset-md-2">
 				<div class="card">
 					<div class="card-header primary-background text-white">
-						<h4><%=p.getpTitle()%></h4>
+						<h4 class="post-title"><%=p.getpTitle()%></h4>
 					</div>
 					<div class="card-body">
 					<img class="card-img-top my-3" src="blog_pics/<%=p.getpPic() %>" alt="Card image cap">
-						<p><%=p.getpContent()%></p>
+					<div class="row my-3 row-user">
+					<div class="col-md-6">
+					<p class="post-userInfo"><a href="#!">Arif</a> has posted:</p>
+					</div>
+					<div class="col-md-6">
+					<p class="post-date"><%=p.getpDate().toLocaleString() %></p>
+					</div>
+					</div>
+						<p class="post-content"><%=p.getpContent()%></p>
 						<br>
 						<br>
 						<%
 						String code = (p.getpCode() == null) ? "NA" : p.getpCode();
 						%>
+						<div class="post-code">
 						<pre><%=code%></pre>
+						</div>
 					</div>
 					<div class="card-footer primary-background">
 						<a href="#!" class="btn btn-outline-primary btn-sm text-white"><i
