@@ -3,6 +3,7 @@
 <%@page import="com.tech.blog.dao.PostDao"%>
 <%@page import="com.tech.blog.entities.Posts"%>
 
+
 <div class="row">
 
 <%
@@ -26,7 +27,7 @@ if(post.size() == 0){
 <div class="col-md-6 mt-2">
 <div class="card">
  <img class="card-img-top" src="blog_pics/<%=p.getpPic() %>" alt="Card image cap">
-<div class="card-body">
+<div class="card-body postBox py-2">
 <b><%=p.getpTitle() %></b>
 <p><%=p.getpContent() %></p>
 <pre><%=p.getpCode() %></pre>

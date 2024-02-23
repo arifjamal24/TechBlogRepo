@@ -1,3 +1,5 @@
+<%@page import="java.text.DateFormat"%>
+<%@page import="com.tech.blog.dao.UserDao"%>
 <%@page import="com.tech.blog.entities.Category"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.tech.blog.helper.ConnectionProvider"%>
@@ -53,6 +55,18 @@ font-weight:normal;
 border: 1px solid #e2e2e2;
 padding: 15px;
 }
+
+body{
+background:url(img/wave.jpg);
+background-size:cover;
+background-attachment:fixed;
+}
+
+.position-sticky{
+position:sticky;
+top:0px;
+z-index:100;
+}
 </style>
 
 <%
@@ -64,7 +78,7 @@ Posts p = pd.getPostByPostId(pid);
 <title><%=p.getpTitle()%> || by TechBlog</title>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark primary-background">
+	<nav class="navbar navbar-expand-lg navbar-dark primary-background position-sticky">
 		<a class="navbar-brand" href="index.jsp"><span
 			class="fa fa-asterisk"></span> TechBlog</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -126,10 +140,13 @@ Posts p = pd.getPostByPostId(pid);
 					<img class="card-img-top my-3" src="blog_pics/<%=p.getpPic() %>" alt="Card image cap">
 					<div class="row my-3 row-user">
 					<div class="col-md-6">
-					<p class="post-userInfo"><a href="#!">Arif</a> has posted:</p>
+					<%
+					UserDao ud = new UserDao(ConnectionProvider.getConnection());					
+					%>
+					<p class="post-userInfo"><a href="#!"><%=ud.getUserByUserId(p.getUserId()).getName() %></a> has posted:</p>
 					</div>
 					<div class="col-md-6">
-					<p class="post-date"><%=p.getpDate().toLocaleString() %></p>
+					<p class="post-date"><%=DateFormat.getDateTimeInstance().format(p.getpDate()) %></p>
 					</div>
 					</div>
 						<p class="post-content"><%=p.getpContent()%></p>

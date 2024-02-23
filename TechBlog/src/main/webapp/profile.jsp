@@ -36,6 +36,22 @@ if (user == null) {
 .banner-background {
 	clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 99%, 65% 87%, 34% 100%, 0 95%, 0 0);
 }
+
+body{
+background:url(img/wave.jpg);
+background-size:cover;
+background-attachment:fixed;
+}
+
+.position-sticky{
+position:sticky;
+top:0px;
+z-index:100;
+}
+
+.postBox{
+height:200px;
+}
 </style>
 <title>login page</title>
 
@@ -44,7 +60,7 @@ if (user == null) {
 <body>
 
 
-	<nav class="navbar navbar-expand-lg navbar-dark primary-background">
+	<nav class="navbar navbar-expand-lg navbar-dark primary-background position-sticky">
 		<a class="navbar-brand" href="index.jsp"><span
 			class="fa fa-asterisk"></span> TechBlog</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
