@@ -44,7 +44,7 @@ if (user == null) {
 
 .post-content {
 	font-weight: 100;
-	font-size: 25px;
+	font-size: 18px;
 }
 
 .post-date {
