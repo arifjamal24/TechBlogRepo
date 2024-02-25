@@ -36,39 +36,46 @@ if (user == null) {
 .banner-background {
 	clip-path: polygon(20% 0%, 80% 0%, 100% 0, 100% 99%, 65% 87%, 34% 100%, 0 95%, 0 0);
 }
-.post-title{
-font-weight:100;
-font-size:30px;
-}
-.post-content{
-font-weight:100;
-font-size:25px;
-}
-.post-date{
-font-style:italic;
-font-weight:bold;
-}
-.post-userInfo{
-font-size:20px;
-font-weight:normal;
-}
-.row-user{
-border: 1px solid #e2e2e2;
-padding: 15px;
+
+.post-title {
+	font-weight: 100;
+	font-size: 30px;
 }
 
-body{
-background:url(img/wave.jpg);
-background-size:cover;
-background-attachment:fixed;
+.post-content {
+	font-weight: 100;
+	font-size: 25px;
 }
 
-.position-sticky{
-position:sticky;
-top:0px;
-z-index:100;
+.post-date {
+	font-style: italic;
+	font-weight: bold;
+}
+
+.post-userInfo {
+	font-size: 20px;
+	font-weight: normal;
+}
+
+.row-user {
+	border: 1px solid #e2e2e2;
+	padding: 15px;
+}
+
+body {
+	background: url(img/wave.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.position-sticky {
+	position: sticky;
+	top: 0px;
+	z-index: 100;
 }
 </style>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v19.0" nonce="rW5jTFan"></script>
 
 <%
 int pid = Integer.parseInt(request.getParameter("pid"));
@@ -79,7 +86,8 @@ Posts p = pd.getPostByPostId(pid);
 <title><%=p.getpTitle()%> || by TechBlog</title>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark primary-background position-sticky">
+	<nav
+		class="navbar navbar-expand-lg navbar-dark primary-background position-sticky">
 		<a class="navbar-brand" href="index.jsp"><span
 			class="fa fa-asterisk"></span> TechBlog</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -138,39 +146,49 @@ Posts p = pd.getPostByPostId(pid);
 						<h4 class="post-title"><%=p.getpTitle()%></h4>
 					</div>
 					<div class="card-body">
-					<img class="card-img-top my-3" src="blog_pics/<%=p.getpPic() %>" alt="Card image cap">
-					<div class="row my-3 row-user">
-					<div class="col-md-6">
-					<%
-					UserDao ud = new UserDao(ConnectionProvider.getConnection());					
-					%>
-					<p class="post-userInfo"><a href="#!"><%=ud.getUserByUserId(p.getUserId()).getName() %></a> has posted:</p>
-					</div>
-					<div class="col-md-6">
-					<p class="post-date"><%=DateFormat.getDateTimeInstance().format(p.getpDate()) %></p>
-					</div>
-					</div>
+						<img class="card-img-top my-3" src="blog_pics/<%=p.getpPic()%>"
+							alt="Card image cap">
+						<div class="row my-3 row-user">
+							<div class="col-md-6">
+								<%
+								UserDao ud = new UserDao(ConnectionProvider.getConnection());
+								%>
+								<p class="post-userInfo">
+									<a href="#!"><%=ud.getUserByUserId(p.getUserId()).getName()%></a>
+									has posted:
+								</p>
+							</div>
+							<div class="col-md-6">
+								<p class="post-date"><%=DateFormat.getDateTimeInstance().format(p.getpDate())%></p>
+							</div>
+						</div>
 						<p class="post-content"><%=p.getpContent()%></p>
-						<br>
-						<br>
+						<br> <br>
 						<%
 						String code = (p.getpCode() == null) ? "NA" : p.getpCode();
 						%>
 						<div class="post-code">
-						<pre><%=code%></pre>
+							<pre><%=code%></pre>
 						</div>
 					</div>
 					<div class="card-footer primary-background">
-					<%
+						<%
 						LikeDao ld = new LikeDao(ConnectionProvider.getConnection());
-					%>
-					
-					
-						<a href="#!" onclick="doLike(<%=p.getPid()%>,<%=user.getId()%>)" class="btn btn-outline-primary btn-sm text-white"><i
-							class="fa fa-thumbs-o-up text-white"></i><span class="like-count"><%=ld.countLikeOnPost(p.getPid()) %></span></a> <a href="#!"
+						%>
+
+
+						<a href="#!" onclick="doLike(<%=p.getPid()%>,<%=user.getId()%>)"
 							class="btn btn-outline-primary btn-sm text-white"><i
+							class="fa fa-thumbs-o-up text-white"></i><span class="like-count"><%=ld.countLikeOnPost(p.getPid())%></span></a>
+						<a href="#!" class="btn btn-outline-primary btn-sm text-white"><i
 							class="fa fa-commenting-o text-white"></i><span>20</span></a>
 					</div>
+
+<%-- 					<div class="card-footer">
+						<div class="fb-comments"
+							data-href="http://localhost:8080/TechBlog/showBlog.jsp?pid=<%=p.getPid() %>"
+							data-width="" data-numposts="5"></div>
+					</div> --%>
 				</div>
 			</div>
 		</div>
