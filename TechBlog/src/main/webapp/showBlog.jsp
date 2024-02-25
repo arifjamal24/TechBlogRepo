@@ -1,3 +1,4 @@
+<%@page import="com.tech.blog.dao.LikeDao"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="com.tech.blog.dao.UserDao"%>
 <%@page import="com.tech.blog.entities.Category"%>
@@ -160,8 +161,13 @@ Posts p = pd.getPostByPostId(pid);
 						</div>
 					</div>
 					<div class="card-footer primary-background">
+					<%
+						LikeDao ld = new LikeDao(ConnectionProvider.getConnection());
+					%>
+					
+					
 						<a href="#!" onclick="doLike(<%=p.getPid()%>,<%=user.getId()%>)" class="btn btn-outline-primary btn-sm text-white"><i
-							class="fa fa-thumbs-o-up text-white"></i><span>10</span></a> <a href="#!"
+							class="fa fa-thumbs-o-up text-white"></i><span class="like-count"><%=ld.countLikeOnPost(p.getPid()) %></span></a> <a href="#!"
 							class="btn btn-outline-primary btn-sm text-white"><i
 							class="fa fa-commenting-o text-white"></i><span>20</span></a>
 					</div>

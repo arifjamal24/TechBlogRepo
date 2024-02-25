@@ -92,6 +92,11 @@ $.ajax({
 	    data:obj,
 	 success:function(data){
 		console.log(data);
+		if(data.trim() === 'true'){
+			let c = $('.like-count').html();
+			c++;
+			$('.like-count').html(c);
+		}
 	},
 	error:function(error){
 		console.log(error)
