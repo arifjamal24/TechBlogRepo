@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tech.blog.dao.LikeDao;
+import com.tech.blog.helper.ConnectionProvider;
+
 /**
  * Servlet implementation class LikeServlet
  */
@@ -42,10 +45,15 @@ public class LikeServlet extends HttpServlet {
 		int pid = Integer.parseInt(request.getParameter("pid"));
 		int uid = Integer.parseInt(request.getParameter("uid"));
 		
+		LikeDao ld = new LikeDao(ConnectionProvider.getConnection());
+		if(operation.equals("like")) {
+			boolean f = ld.insertLike(pid, uid);
+			out.println(f);
+		}
 		
-		out.print(operation);
-		out.print(pid);
-		out.print(uid);
+//		out.print(operation);
+//		out.print(pid);
+//		out.print(uid);
 		
 	}
 

@@ -87,8 +87,8 @@ function doLike(pid,uid){
 		}
 		
 $.ajax({
-		url:'Like',
-		type:'POST',
+		url:"Like",
+		type:"POST",
 	    data:obj,
 	 success:function(data){
 		console.log(data);
