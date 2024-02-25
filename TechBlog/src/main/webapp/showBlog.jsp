@@ -160,7 +160,7 @@ Posts p = pd.getPostByPostId(pid);
 						</div>
 					</div>
 					<div class="card-footer primary-background">
-						<a href="#!" class="btn btn-outline-primary btn-sm text-white"><i
+						<a href="#!" onclick="doLike(<%=p.getPid()%>,<%=user.getId()%>)" class="btn btn-outline-primary btn-sm text-white"><i
 							class="fa fa-thumbs-o-up text-white"></i><span>10</span></a> <a href="#!"
 							class="btn btn-outline-primary btn-sm text-white"><i
 							class="fa fa-commenting-o text-white"></i><span>20</span></a>

@@ -46,7 +46,7 @@ $('#edit-profile-btn').click(function(){
 			
 		});	
 	});
-	
+
 });
  
  function getAllPost(catId,temp){
@@ -75,3 +75,27 @@ $().ready(function(){
  let ref = $('.c-link')[0];	
 getAllPost(0,ref);
 });
+
+	
+	
+function doLike(pid,uid){
+		console.log(pid,uid)
+		const obj = {
+			pid : pid,
+			uid : uid,
+	   operation: 'like'
+		}
+		
+$.ajax({
+		url:'Like',
+		type:'POST',
+	    data:obj,
+	 success:function(data){
+		console.log(data);
+	},
+	error:function(error){
+		console.log(error)
+	}
+		
+	});
+}
